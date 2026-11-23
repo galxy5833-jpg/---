@@ -1,0 +1,8 @@
+{
+  "name": "커리어데스크 - 취업준비 도우미",
+  "description": "지원 현황 관리, AI 자기소개서 첨삭, 모의 면접 코칭, 이력서·체크리스트 점검을 한곳에서 관리하는 취업준비 워크스페이스입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
