@@ -8,10 +8,9 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    color-scheme: dark;
-    color: #f4f4f5;
-    background-color: #09090b;
-    letter-spacing: 0.005em;
+    color-scheme: light;
+    color: #0f172a;
+    background-color: #ffffff;
   }
 
   h1, h2, h3, h4 {
@@ -21,6 +20,23 @@
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+/* Precision architectural grid for bright daylight canvas */
+.bg-wafer-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.036) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.036) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 85% 70% at 50% 15%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 15%, #000 40%, transparent 100%);
+}
+
+/* Subtle sapphire-ice daylight atmospheric gradient */
+.bg-ambient-glow {
+  background:
+    radial-gradient(60% 45% at 80% 0%, rgba(37, 99, 235, 0.065) 0%, transparent 70%),
+    radial-gradient(45% 35% at 15% 5%, rgba(14, 165, 233, 0.05) 0%, transparent 70%);
 }
 
 @media (prefers-reduced-motion: reduce) {

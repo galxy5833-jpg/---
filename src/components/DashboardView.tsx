@@ -61,17 +61,17 @@ const PHASES: ChecklistPhase[] = [
 function getStageTextStyle(stage: ApplicationStage): string {
   switch (stage) {
     case '최종 합격':
-      return 'text-emerald-400 font-semibold';
+      return 'text-emerald-700 font-semibold';
     case '1차 면접':
     case '최종 면접':
-      return 'text-blue-400 font-semibold';
+      return 'text-blue-700 font-semibold';
     case '과제 · 코테':
     case '서류 제출':
-      return 'text-amber-400 font-medium';
+      return 'text-amber-700 font-medium';
     case '불합격':
-      return 'text-zinc-500 font-medium';
+      return 'text-slate-400 font-medium';
     default:
-      return 'text-zinc-300 font-medium';
+      return 'text-slate-700 font-medium';
   }
 }
 
@@ -196,46 +196,46 @@ export function DashboardView({
   return (
     <div className="space-y-8">
       {/* Executive Header Band */}
-      <section className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-zinc-800/90">
+      <section className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-slate-200/90">
         <div className="space-y-2.5 max-w-2xl">
           {editingProfile ? (
             <form
               onSubmit={handleSaveProfile}
-              className="flex flex-wrap items-center gap-2 bg-[#111216] border border-zinc-800 rounded-md p-2.5"
+              className="flex flex-wrap items-center gap-2 bg-white/90 backdrop-blur-md border border-slate-200 rounded-md p-2.5"
             >
               <input
                 type="text"
                 value={roleInput}
                 onChange={(e) => setRoleInput(e.target.value)}
                 placeholder="목표 직무"
-                className="px-2.5 py-1 text-xs bg-zinc-950 border border-zinc-700 text-zinc-100 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="px-2.5 py-1 text-xs bg-white border border-slate-300 text-slate-900 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
               <input
                 type="text"
                 value={levelInput}
                 onChange={(e) => setLevelInput(e.target.value)}
                 placeholder="경력 구분"
-                className="px-2.5 py-1 text-xs bg-zinc-950 border border-zinc-700 text-zinc-100 rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="px-2.5 py-1 text-xs bg-white border border-slate-300 text-slate-900 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
               />
               <button
                 type="submit"
-                className="px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-500 rounded"
+                className="px-3 py-1 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded"
               >
                 저장
               </button>
               <button
                 type="button"
                 onClick={() => setEditingProfile(false)}
-                className="px-2.5 py-1 text-xs text-zinc-400 hover:text-zinc-200"
+                className="px-2.5 py-1 text-xs text-slate-500 hover:text-slate-800"
               >
                 취소
               </button>
             </form>
           ) : (
-            <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-400">
-              <span className="text-blue-400 font-medium">목표 포지션</span>
+            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+              <span className="text-blue-700 font-semibold">목표 포지션</span>
               <span aria-hidden="true">·</span>
-              <span className="text-zinc-200 font-medium">{profile.targetRole}</span>
+              <span className="text-slate-900 font-medium">{profile.targetRole}</span>
               <span aria-hidden="true">·</span>
               <span>{profile.experienceLevel}</span>
               <button
@@ -245,17 +245,17 @@ export function DashboardView({
                   setLevelInput(profile.experienceLevel);
                   setEditingProfile(true);
                 }}
-                className="ml-1 text-zinc-500 hover:text-zinc-200 underline underline-offset-2"
+                className="ml-1 text-slate-400 hover:text-slate-800 underline underline-offset-2"
               >
                 수정
               </button>
             </div>
           )}
 
-          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-50">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
             반도체 · 전기 취업 준비 현황
           </h1>
-          <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
             주요 반도체·전력 기업별 전형 단계와 마감 일정, 직무 준비 달성도를 한 화면에서 점검합니다.
           </p>
         </div>
@@ -265,37 +265,37 @@ export function DashboardView({
           <button
             type="button"
             onClick={() => onJumpToDocuments('cover-letter')}
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium text-zinc-100 bg-[#111216] border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-900 rounded-md transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium text-slate-700 bg-white/90 backdrop-blur-md border border-slate-200 hover:border-slate-300 hover:bg-white rounded-md transition-colors whitespace-nowrap"
           >
             <span>자소서 AI 첨삭</span>
-            <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
+            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
           </button>
           <button
             type="button"
             onClick={() => onJumpToInterviewPrep('interview')}
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium text-zinc-100 bg-[#111216] border border-zinc-700 hover:border-zinc-500 hover:bg-zinc-900 rounded-md transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium text-slate-700 bg-white/90 backdrop-blur-md border border-slate-200 hover:border-slate-300 hover:bg-white rounded-md transition-colors whitespace-nowrap"
           >
             <span>모의 면접 시작</span>
-            <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
+            <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
           </button>
 
           {confirmReset ? (
-            <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#111216] border border-zinc-700 rounded-md text-xs">
-              <span className="text-zinc-400">초기화?</span>
+            <div className="flex items-center gap-1.5 px-2.5 py-1.5 bg-white border border-slate-200 rounded-md text-xs">
+              <span className="text-slate-500">초기화?</span>
               <button
                 type="button"
                 onClick={() => {
                   onResetDemoData();
                   setConfirmReset(false);
                 }}
-                className="text-rose-400 font-medium hover:underline"
+                className="text-rose-600 font-medium hover:underline"
               >
                 확인
               </button>
               <button
                 type="button"
                 onClick={() => setConfirmReset(false)}
-                className="text-zinc-400 hover:text-zinc-200"
+                className="text-slate-500 hover:text-slate-800"
               >
                 취소
               </button>
@@ -305,7 +305,7 @@ export function DashboardView({
               type="button"
               onClick={() => setConfirmReset(true)}
               title="기본 샘플 데이터로 복원"
-              className="p-2 text-zinc-500 hover:text-zinc-200 transition-colors rounded-md"
+              className="p-2 text-slate-400 hover:text-slate-700 transition-colors rounded-md"
               aria-label="기본 데이터 복원"
             >
               <RotateCcw className="w-4 h-4" />
@@ -317,38 +317,38 @@ export function DashboardView({
       {/* 4-Column High-Contrast Metric Strip */}
       <section
         aria-label="핵심 취업 준비 지표"
-        className="bg-[#111216] border border-zinc-800 rounded-lg grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-zinc-800"
+        className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-slate-200"
       >
         <div className="p-5 sm:p-6">
-          <p className="text-xs font-medium text-zinc-400">전체 지원 기업</p>
-          <p className="mt-2 text-3xl font-bold text-zinc-50 tabular-nums">
+          <p className="text-xs font-medium text-slate-500">전체 지원 기업</p>
+          <p className="mt-2 text-3xl font-bold text-slate-900 tabular-nums">
             {stats.total}건
           </p>
-          <p className="mt-1.5 text-xs text-zinc-500">
+          <p className="mt-1.5 text-xs text-slate-400">
             반도체 · 전력기기 목표 공고
           </p>
         </div>
 
         <div className="p-5 sm:p-6">
-          <p className="text-xs font-medium text-zinc-400">진행 중 전형</p>
-          <p className="mt-2 text-3xl font-bold text-blue-400 tabular-nums">
+          <p className="text-xs font-medium text-slate-500">진행 중 전형</p>
+          <p className="mt-2 text-3xl font-bold text-blue-600 tabular-nums">
             {stats.inProgress}건
           </p>
-          <p className="mt-1.5 text-xs text-zinc-500 tabular-nums">
+          <p className="mt-1.5 text-xs text-slate-500 tabular-nums">
             면접 {stats.interview}건 · 서류/과제 {stats.submitted}건
           </p>
         </div>
 
         <div className="p-5 sm:p-6">
-          <p className="text-xs font-medium text-zinc-400">7일 이내 임박 일정</p>
+          <p className="text-xs font-medium text-slate-500">7일 이내 임박 일정</p>
           <p
             className={`mt-2 text-3xl font-bold tabular-nums ${
-              stats.urgentCount > 0 ? 'text-amber-400' : 'text-zinc-50'
+              stats.urgentCount > 0 ? 'text-amber-600' : 'text-slate-900'
             }`}
           >
             {stats.urgentCount}건
           </p>
-          <p className="mt-1.5 text-xs text-zinc-500 truncate">
+          <p className="mt-1.5 text-xs text-slate-500 truncate">
             {stats.nearestApp
               ? `최단: ${stats.nearestApp.company} (${formatDday(stats.nearestApp.deadline)})`
               : '예정된 마감 없음'}
@@ -358,13 +358,13 @@ export function DashboardView({
         <button
           type="button"
           onClick={() => onJumpToInterviewPrep('checklist')}
-          className="p-5 sm:p-6 text-left hover:bg-zinc-900/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500"
+          className="p-5 sm:p-6 text-left hover:bg-slate-50/70 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-600"
         >
-          <p className="text-xs font-medium text-zinc-400">직무 준비 달성률</p>
-          <p className="mt-2 text-3xl font-bold text-emerald-400 tabular-nums">
+          <p className="text-xs font-medium text-slate-500">직무 준비 달성률</p>
+          <p className="mt-2 text-3xl font-bold text-emerald-600 tabular-nums">
             {stats.checklistPct}%
           </p>
-          <p className="mt-1.5 text-xs text-zinc-500 tabular-nums">
+          <p className="mt-1.5 text-xs text-slate-500 tabular-nums">
             {stats.completedChecks} / {checklist.length} 체크리스트 완료
           </p>
         </button>
@@ -373,22 +373,22 @@ export function DashboardView({
       {/* At-a-Glance Visual Grid: Pipeline + Deadlines (Left) & Phase Readiness (Right) */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left: Pipeline Breakdown & Upcoming Top 3 */}
-        <div className="lg:col-span-7 bg-[#111216] border border-zinc-800 rounded-lg p-6 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-7 bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg p-6 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-2">
-              <h2 className="text-base font-semibold text-zinc-100">
+              <h2 className="text-base font-semibold text-slate-900">
                 전형 단계별 파이프라인 분포
               </h2>
-              <span className="text-xs font-mono tabular-nums text-zinc-400">
+              <span className="text-xs font-mono tabular-nums text-slate-500">
                 총 {stats.total}개 공고
               </span>
             </div>
 
             {/* Stacked Visual Pipeline Bar */}
-            <div className="h-3 w-full bg-zinc-900 rounded-sm overflow-hidden flex gap-0.5">
+            <div className="h-3 w-full bg-slate-100 rounded-sm overflow-hidden flex gap-0.5">
               {stats.preparing > 0 && (
                 <div
-                  className="h-full bg-zinc-500 transition-all duration-300"
+                  className="h-full bg-slate-400 transition-all duration-300"
                   style={{ width: `${(stats.preparing / pipelineBase) * 100}%` }}
                   title={`준비 중 ${stats.preparing}건`}
                 />
@@ -402,14 +402,14 @@ export function DashboardView({
               )}
               {stats.interview > 0 && (
                 <div
-                  className="h-full bg-blue-500 transition-all duration-300"
+                  className="h-full bg-blue-600 transition-all duration-300"
                   style={{ width: `${(stats.interview / pipelineBase) * 100}%` }}
                   title={`면접 진행 ${stats.interview}건`}
                 />
               )}
               {stats.passed > 0 && (
                 <div
-                  className="h-full bg-emerald-500 transition-all duration-300"
+                  className="h-full bg-emerald-600 transition-all duration-300"
                   style={{ width: `${(stats.passed / pipelineBase) * 100}%` }}
                   title={`최종 합격 ${stats.passed}건`}
                 />
@@ -418,27 +418,27 @@ export function DashboardView({
 
             {/* Clean Typographic Legend */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-1 text-xs">
-              <div className="flex items-center justify-between border border-zinc-800/80 rounded px-3 py-2 bg-zinc-950/60">
-                <span className="text-zinc-300">준비 중</span>
-                <span className="font-mono tabular-nums font-semibold text-zinc-100">
+              <div className="flex items-center justify-between border border-slate-200 rounded px-3 py-2 bg-slate-50/70">
+                <span className="text-slate-600 font-medium">준비 중</span>
+                <span className="font-mono tabular-nums font-semibold text-slate-900">
                   {stats.preparing}
                 </span>
               </div>
-              <div className="flex items-center justify-between border border-zinc-800/80 rounded px-3 py-2 bg-zinc-950/60">
-                <span className="text-amber-400">서류 · 과제</span>
-                <span className="font-mono tabular-nums font-semibold text-zinc-100">
+              <div className="flex items-center justify-between border border-slate-200 rounded px-3 py-2 bg-slate-50/70">
+                <span className="text-amber-700 font-medium">서류 · 과제</span>
+                <span className="font-mono tabular-nums font-semibold text-slate-900">
                   {stats.submitted}
                 </span>
               </div>
-              <div className="flex items-center justify-between border border-zinc-800/80 rounded px-3 py-2 bg-zinc-950/60">
-                <span className="text-blue-400">면접 진행</span>
-                <span className="font-mono tabular-nums font-semibold text-zinc-100">
+              <div className="flex items-center justify-between border border-slate-200 rounded px-3 py-2 bg-slate-50/70">
+                <span className="text-blue-700 font-medium">면접 진행</span>
+                <span className="font-mono tabular-nums font-semibold text-slate-900">
                   {stats.interview}
                 </span>
               </div>
-              <div className="flex items-center justify-between border border-zinc-800/80 rounded px-3 py-2 bg-zinc-950/60">
-                <span className="text-emerald-400">최종 합격</span>
-                <span className="font-mono tabular-nums font-semibold text-zinc-100">
+              <div className="flex items-center justify-between border border-slate-200 rounded px-3 py-2 bg-slate-50/70">
+                <span className="text-emerald-700 font-medium">최종 합격</span>
+                <span className="font-mono tabular-nums font-semibold text-slate-900">
                   {stats.passed}
                 </span>
               </div>
@@ -446,20 +446,20 @@ export function DashboardView({
           </div>
 
           {/* Upcoming Top 3 Timeline */}
-          <div className="pt-5 border-t border-zinc-800 space-y-3">
+          <div className="pt-5 border-t border-slate-200 space-y-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-semibold text-zinc-200">
+              <h3 className="text-sm font-semibold text-slate-900">
                 다가오는 주요 전형 · 마감 일정
               </h3>
-              <span className="text-xs text-zinc-500">클릭하여 상세 수정</span>
+              <span className="text-xs text-slate-400">클릭하여 상세 수정</span>
             </div>
 
             {stats.upcomingTop3.length === 0 ? (
-              <p className="text-xs text-zinc-500 py-3">
+              <p className="text-xs text-slate-400 py-3">
                 예정된 마감 또는 전형 일정이 없습니다.
               </p>
             ) : (
-              <ul className="divide-y divide-zinc-800/80">
+              <ul className="divide-y divide-slate-100">
                 {stats.upcomingTop3.map((app) => {
                   const days = getDaysRemaining(app.deadline);
                   const urgent = days !== null && days <= 3;
@@ -468,31 +468,31 @@ export function DashboardView({
                       <button
                         type="button"
                         onClick={() => onSelectApplication(app)}
-                        className="w-full py-2.5 flex items-center justify-between gap-4 text-left hover:bg-zinc-900/50 px-2 -mx-2 rounded transition-colors"
+                        className="w-full py-2.5 flex items-center justify-between gap-4 text-left hover:bg-slate-50 px-2 -mx-2 rounded transition-colors"
                       >
                         <div className="min-w-0 flex items-center gap-3">
                           <span
                             className={`font-mono text-xs tabular-nums w-12 shrink-0 ${
                               urgent
-                                ? 'text-rose-400 font-semibold'
-                                : 'text-amber-400 font-medium'
+                                ? 'text-rose-600 font-semibold'
+                                : 'text-amber-700 font-medium'
                             }`}
                           >
                             {formatDday(app.deadline)}
                           </span>
                           <div className="min-w-0">
-                            <p className="text-sm font-medium text-zinc-100 truncate">
+                            <p className="text-sm font-medium text-slate-900 truncate">
                               {app.company}{' '}
-                              <span className="text-zinc-500 font-normal">
+                              <span className="text-slate-500 font-normal">
                                 · {app.stage}
                               </span>
                             </p>
-                            <p className="text-xs text-zinc-400 truncate">
+                            <p className="text-xs text-slate-500 truncate">
                               {app.nextAction || app.role}
                             </p>
                           </div>
                         </div>
-                        <span className="text-xs font-mono tabular-nums text-zinc-500 shrink-0">
+                        <span className="text-xs font-mono tabular-nums text-slate-400 shrink-0">
                           {formatKoreanDate(app.deadline)}
                         </span>
                       </button>
@@ -505,16 +505,16 @@ export function DashboardView({
         </div>
 
         {/* Right: 4-Phase Readiness Breakdown */}
-        <div className="lg:col-span-5 bg-[#111216] border border-zinc-800 rounded-lg p-6 flex flex-col justify-between space-y-6">
+        <div className="lg:col-span-5 bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg p-6 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
             <div className="flex items-center justify-between gap-2">
-              <h2 className="text-base font-semibold text-zinc-100">
+              <h2 className="text-base font-semibold text-slate-900">
                 단계별 취업 준비 진행도
               </h2>
               <button
                 type="button"
                 onClick={() => onJumpToInterviewPrep('checklist')}
-                className="text-xs font-medium text-blue-400 hover:text-blue-300 whitespace-nowrap"
+                className="text-xs font-medium text-blue-600 hover:text-blue-700 whitespace-nowrap"
               >
                 체크리스트 관리 →
               </button>
@@ -530,15 +530,15 @@ export function DashboardView({
                 return (
                   <div key={phase} className="space-y-1.5">
                     <div className="flex items-center justify-between text-xs">
-                      <span className="text-zinc-200 font-medium">{phase}</span>
-                      <span className="font-mono tabular-nums text-zinc-400">
+                      <span className="text-slate-700 font-medium">{phase}</span>
+                      <span className="font-mono tabular-nums text-slate-500">
                         {done}/{items.length} ({pct}%)
                       </span>
                     </div>
-                    <div className="h-2 w-full bg-zinc-900 rounded-sm overflow-hidden">
+                    <div className="h-2 w-full bg-slate-100 rounded-sm overflow-hidden">
                       <div
                         className={`h-full transition-all duration-300 ${
-                          pct === 100 ? 'bg-emerald-500' : 'bg-blue-500'
+                          pct === 100 ? 'bg-emerald-600' : 'bg-blue-600'
                         }`}
                         style={{ width: `${pct}%` }}
                       />
@@ -550,24 +550,24 @@ export function DashboardView({
           </div>
 
           {/* Connected Studio Quick Summary */}
-          <div className="pt-5 border-t border-zinc-800 grid grid-cols-2 gap-3">
+          <div className="pt-5 border-t border-slate-200 grid grid-cols-2 gap-3">
             <button
               type="button"
               onClick={() => onJumpToDocuments('cover-letter')}
-              className="p-3.5 text-left bg-zinc-950/70 border border-zinc-800 hover:border-zinc-600 rounded-md transition-colors"
+              className="p-3.5 text-left bg-slate-50/80 border border-slate-200 hover:border-slate-300 hover:bg-white rounded-md transition-colors"
             >
-              <p className="text-xs text-zinc-400">작성 중 자기소개서</p>
-              <p className="mt-1 text-lg font-bold text-zinc-100 tabular-nums">
+              <p className="text-xs text-slate-500">작성 중 자기소개서</p>
+              <p className="mt-1 text-lg font-bold text-slate-900 tabular-nums">
                 {draftCount}개 문항
               </p>
             </button>
             <button
               type="button"
               onClick={() => onJumpToInterviewPrep('interview')}
-              className="p-3.5 text-left bg-zinc-950/70 border border-zinc-800 hover:border-zinc-600 rounded-md transition-colors"
+              className="p-3.5 text-left bg-slate-50/80 border border-slate-200 hover:border-slate-300 hover:bg-white rounded-md transition-colors"
             >
-              <p className="text-xs text-zinc-400">모의 면접 답변 노트</p>
-              <p className="mt-1 text-lg font-bold text-zinc-100 tabular-nums">
+              <p className="text-xs text-slate-500">모의 면접 답변 노트</p>
+              <p className="mt-1 text-lg font-bold text-slate-900 tabular-nums">
                 {noteCount}건 저장
               </p>
             </button>
@@ -576,10 +576,10 @@ export function DashboardView({
       </section>
 
       {/* Full-Width Application Pipeline Table */}
-      <section className="bg-[#111216] border border-zinc-800 rounded-lg overflow-hidden">
+      <section className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg overflow-hidden">
         {/* Table Toolbar */}
-        <div className="p-4 border-b border-zinc-800 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
-          <div className="flex items-center gap-1 p-1 bg-zinc-950 border border-zinc-800 rounded-md overflow-x-auto">
+        <div className="p-4 border-b border-slate-200 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+          <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-md overflow-x-auto">
             {FILTER_TABS.map((tab) => {
               const active = filterGroup === tab.id;
               return (
@@ -589,8 +589,8 @@ export function DashboardView({
                   onClick={() => setFilterGroup(tab.id)}
                   className={`px-3 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap shrink-0 ${
                     active
-                      ? 'bg-zinc-800 text-zinc-50'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'bg-white text-slate-900 shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {tab.label}
@@ -601,19 +601,19 @@ export function DashboardView({
 
           <div className="flex items-center gap-2">
             <div className="relative flex-1 sm:w-64">
-              <Search className="w-4 h-4 text-zinc-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="기업명, 직무, 할 일 검색"
-                className="w-full pl-9 pr-3 py-1.5 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-9 pr-3 py-1.5 text-sm bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
             <button
               type="button"
               onClick={() => setSortAsc((prev) => !prev)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-zinc-300 bg-zinc-950 border border-zinc-800 hover:border-zinc-600 rounded-md transition-colors whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-md transition-colors whitespace-nowrap shrink-0"
             >
               <ArrowUpDown className="w-3.5 h-3.5" />
               <span>{sortAsc ? '마감 임박순' : '마감 여유순'}</span>
@@ -624,17 +624,17 @@ export function DashboardView({
         {/* High-Density Data Grid */}
         {filteredApps.length === 0 ? (
           <div className="py-16 px-6 text-center space-y-3">
-            <p className="text-sm font-medium text-zinc-200">
+            <p className="text-sm font-medium text-slate-900">
               조건에 맞는 지원 공고가 없습니다.
             </p>
-            <p className="text-xs text-zinc-500">
+            <p className="text-xs text-slate-500">
               필터를 변경하거나 새로운 반도체·전기 기업 지원서를 등록해 보세요.
             </p>
             <div className="pt-2">
               <button
                 type="button"
                 onClick={onOpenNewApplication}
-                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-md transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors whitespace-nowrap"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>첫 지원서 등록하기</span>
@@ -645,7 +645,7 @@ export function DashboardView({
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-zinc-800 bg-zinc-950/60 text-xs font-medium text-zinc-400">
+                <tr className="border-b border-slate-200 bg-slate-50/70 text-xs font-medium text-slate-500">
                   <th className="py-3 px-4 whitespace-nowrap">기업 · 근무 조건</th>
                   <th className="py-3 px-4 whitespace-nowrap">지원 직무</th>
                   <th className="py-3 px-4 whitespace-nowrap">전형 단계</th>
@@ -654,7 +654,7 @@ export function DashboardView({
                   <th className="py-3 px-4 text-right whitespace-nowrap">D-Day</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-zinc-800/80 text-sm">
+              <tbody className="divide-y divide-slate-200 text-sm">
                 {filteredApps.map((app) => {
                   const daysLeft = getDaysRemaining(app.deadline);
                   const isClosed = app.stage === '최종 합격' || app.stage === '불합격';
@@ -665,11 +665,11 @@ export function DashboardView({
                     <tr
                       key={app.id}
                       onClick={() => onSelectApplication(app)}
-                      className="hover:bg-zinc-900/70 transition-colors cursor-pointer group"
+                      className="hover:bg-slate-50/80 transition-colors cursor-pointer group"
                     >
                       <td className="py-3.5 px-4 align-middle">
                         <div className="flex items-center gap-1.5">
-                          <span className="font-semibold text-zinc-100 group-hover:text-blue-400 transition-colors">
+                          <span className="font-semibold text-slate-900 group-hover:text-blue-700 transition-colors">
                             {app.company}
                           </span>
                           {app.jobUrl && (
@@ -679,20 +679,20 @@ export function DashboardView({
                               rel="noreferrer"
                               onClick={(e) => e.stopPropagation()}
                               aria-label={`${app.company} 채용 공고 열기`}
-                              className="text-zinc-500 hover:text-blue-400 p-0.5"
+                              className="text-slate-400 hover:text-blue-600 p-0.5"
                             >
                               <ExternalLink className="w-3.5 h-3.5" />
                             </a>
                           )}
                         </div>
-                        <div className="mt-0.5 flex items-center gap-1.5 text-xs text-zinc-500">
+                        <div className="mt-0.5 flex items-center gap-1.5 text-xs text-slate-500">
                           <span>{app.workType}</span>
                           <span aria-hidden="true">·</span>
                           <span>{app.location}</span>
                         </div>
                       </td>
 
-                      <td className="py-3.5 px-4 align-middle text-zinc-300 font-medium">
+                      <td className="py-3.5 px-4 align-middle text-slate-700 font-medium">
                         {app.role}
                       </td>
 
@@ -706,7 +706,7 @@ export function DashboardView({
                           onChange={(e) =>
                             onUpdateStage(app.id, e.target.value as ApplicationStage)
                           }
-                          className={`text-xs bg-transparent border border-transparent hover:border-zinc-700 focus:border-blue-500 rounded px-1.5 py-1 -ml-1.5 focus:outline-none cursor-pointer ${getStageTextStyle(
+                          className={`text-xs bg-transparent border border-transparent hover:border-slate-300 focus:border-blue-600 rounded px-1.5 py-1 -ml-1.5 focus:outline-none cursor-pointer ${getStageTextStyle(
                             app.stage
                           )}`}
                         >
@@ -714,7 +714,7 @@ export function DashboardView({
                             <option
                               key={st}
                               value={st}
-                              className="bg-zinc-900 text-zinc-100 font-normal"
+                              className="bg-white text-slate-900 font-normal"
                             >
                               {st}
                             </option>
@@ -722,21 +722,21 @@ export function DashboardView({
                         </select>
                       </td>
 
-                      <td className="py-3.5 px-4 align-middle text-xs text-zinc-400 max-w-xs truncate">
+                      <td className="py-3.5 px-4 align-middle text-xs text-slate-600 max-w-xs truncate">
                         {app.nextAction || '상세 메모 입력하기'}
                       </td>
 
-                      <td className="py-3.5 px-4 align-middle text-right font-mono text-xs text-zinc-400 tabular-nums whitespace-nowrap">
+                      <td className="py-3.5 px-4 align-middle text-right font-mono text-xs text-slate-500 tabular-nums whitespace-nowrap">
                         {formatKoreanDate(app.deadline)}
                       </td>
 
                       <td
                         className={`py-3.5 px-4 align-middle text-right font-mono text-xs tabular-nums whitespace-nowrap ${
                           isUrgent
-                            ? 'text-rose-400 font-semibold'
+                            ? 'text-rose-600 font-semibold'
                             : isClosed
-                            ? 'text-zinc-500'
-                            : 'text-zinc-200 font-medium'
+                            ? 'text-slate-400'
+                            : 'text-slate-700 font-medium'
                         }`}
                       >
                         {formatDday(app.deadline)}

@@ -22,7 +22,7 @@ export function TopBar({
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 bg-[#09090B]/90 backdrop-blur-md border-b border-zinc-800/90">
+    <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-xl border-b border-slate-200/90">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-8">
         {/* Zone 1: Single text wordmark */}
         <div className="flex items-center gap-3 shrink-0">
@@ -30,7 +30,7 @@ export function TopBar({
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label={mobileOpen ? '메뉴 닫기' : '메뉴 열기'}
-            className="md:hidden p-2 -ml-2 text-zinc-400 hover:text-zinc-100 rounded-md"
+            className="md:hidden p-2 -ml-2 text-slate-600 hover:text-slate-900 rounded-md"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -40,7 +40,7 @@ export function TopBar({
               onSelectTab('dashboard');
               setMobileOpen(false);
             }}
-            className="text-lg font-bold tracking-tight text-zinc-50 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+            className="text-lg font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded"
           >
             커리어데스크
           </button>
@@ -55,17 +55,17 @@ export function TopBar({
                 key={item.id}
                 type="button"
                 onClick={() => onSelectTab(item.id)}
-                className={`relative py-5 text-sm font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded ${
+                className={`relative py-5 text-sm font-medium transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded ${
                   isActive
-                    ? 'text-zinc-50'
-                    : 'text-zinc-400 hover:text-zinc-100'
+                    ? 'text-slate-900'
+                    : 'text-slate-500 hover:text-slate-900'
                 }`}
               >
                 {item.label}
                 {isActive && (
                   <span
                     aria-hidden="true"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600"
                   />
                 )}
               </button>
@@ -78,7 +78,7 @@ export function TopBar({
           <button
             type="button"
             onClick={onOpenNewApplication}
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-md transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B] focus-visible:ring-blue-500"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs sm:text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors duration-150 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
           >
             <Plus className="w-4 h-4 shrink-0" />
             <span>새 지원서 등록</span>
@@ -90,7 +90,7 @@ export function TopBar({
       {mobileOpen && (
         <nav
           aria-label="모바일 메뉴"
-          className="md:hidden border-t border-zinc-800 bg-[#111216] px-4 py-2 space-y-1"
+          className="md:hidden border-t border-slate-200 bg-white px-4 py-2 space-y-1"
         >
           {NAV_ITEMS.map((item) => {
             const isActive = activeTab === item.id;
@@ -104,8 +104,8 @@ export function TopBar({
                 }}
                 className={`w-full text-left px-3 py-2.5 text-sm font-medium rounded-md transition-colors ${
                   isActive
-                    ? 'bg-blue-500/15 text-blue-400'
-                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/60'
+                    ? 'bg-blue-50 text-blue-700'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
                 }`}
               >
                 {item.label}

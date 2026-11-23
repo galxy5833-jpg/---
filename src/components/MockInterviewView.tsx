@@ -174,20 +174,20 @@ export function MockInterviewView({
     <div className="space-y-6">
       {!hideHeader && (
         <div>
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-50">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">
             모의 면접 코치
           </h2>
-          <p className="mt-1 text-sm text-zinc-400">
+          <p className="mt-1 text-sm text-slate-500">
             직무와 기업 공고에 맞춘 예상 질문을 생성하고, 타이머에 맞춰 답변을 작성해 AI 피드백을 받아보세요.
           </p>
         </div>
       )}
 
       {/* Setup Bar */}
-      <section className="bg-[#111216] border border-zinc-800 rounded-lg p-5 space-y-4">
+      <section className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg p-5 space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+            <label className="block text-xs font-medium text-slate-600 mb-1.5">
               목표 직무
             </label>
             <input
@@ -195,12 +195,12 @@ export function MockInterviewView({
               value={role}
               onChange={(e) => setRole(e.target.value)}
               placeholder="예: 반도체 공정기술, 아날로그 회로설계, 전력기기 R&D"
-              className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-sm bg-white border border-slate-200 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+            <label className="block text-xs font-medium text-slate-600 mb-1.5">
               지원 공고 연동 (선택)
             </label>
             <select
@@ -211,7 +211,7 @@ export function MockInterviewView({
                 const app = applications.find((a) => a.id === id);
                 if (app) setRole(app.role);
               }}
-              className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-sm bg-white border border-slate-200 text-slate-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             >
               <option value="">일반 직무 기준</option>
               {applications.map((app) => (
@@ -223,10 +223,10 @@ export function MockInterviewView({
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+            <label className="block text-xs font-medium text-slate-600 mb-1.5">
               면접 유형
             </label>
-            <div className="flex items-center gap-1 p-1 bg-zinc-950 border border-zinc-800 rounded-md">
+            <div className="flex items-center gap-1 p-1 bg-slate-100 rounded-md">
               {INTERVIEW_TYPES.map((type) => (
                 <button
                   key={type}
@@ -234,8 +234,8 @@ export function MockInterviewView({
                   onClick={() => setInterviewType(type)}
                   className={`flex-1 py-1.5 px-2 text-xs font-medium rounded transition-colors whitespace-nowrap ${
                     interviewType === type
-                      ? 'bg-zinc-800 text-zinc-50'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'bg-white text-slate-900 shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   {type}
@@ -246,7 +246,7 @@ export function MockInterviewView({
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-slate-500">
             {linkedApp
               ? `${linkedApp.company}의 JD 요구사항을 반영해 질문을 출제합니다.`
               : '목표 직무와 면접 유형을 선택한 뒤 맞춤 질문 5개를 생성할 수 있습니다.'}
@@ -255,7 +255,7 @@ export function MockInterviewView({
             type="button"
             disabled={generatingQuestions}
             onClick={handleGenerateQuestions}
-            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 rounded-md transition-colors whitespace-nowrap"
+            className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors whitespace-nowrap"
           >
             <Sparkles className="w-4 h-4" />
             <span>
@@ -266,29 +266,29 @@ export function MockInterviewView({
       </section>
 
       {errorMsg && (
-        <div className="p-4 bg-rose-950/50 border border-rose-800 rounded-lg text-sm text-rose-300">
+        <div className="p-4 bg-rose-50 border border-rose-200 rounded-lg text-sm text-rose-700">
           {errorMsg}
         </div>
       )}
 
       {/* Main Practice Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 items-start">
-        <aside className="bg-[#111216] border border-zinc-800 rounded-lg overflow-hidden">
-          <div className="px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
-            <span className="text-xs font-semibold text-zinc-300">
+        <aside className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg overflow-hidden">
+          <div className="px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+            <span className="text-xs font-semibold text-slate-700">
               면접 질문 목록 ({questions.length})
             </span>
             {customQuestion.trim() && (
               <button
                 type="button"
                 onClick={() => setCustomQuestion('')}
-                className="text-xs font-medium text-blue-400 hover:text-blue-300"
+                className="text-xs font-medium text-blue-600 hover:text-blue-700"
               >
                 목록으로 복귀
               </button>
             )}
           </div>
-          <ul className="divide-y divide-zinc-800/80">
+          <ul className="divide-y divide-slate-200">
             {questions.map((q, idx) => {
               const isSelected = !customQuestion.trim() && selectedIdx === idx;
               return (
@@ -301,18 +301,18 @@ export function MockInterviewView({
                       setFeedback(null);
                     }}
                     className={`w-full text-left p-4 transition-colors ${
-                      isSelected ? 'bg-blue-500/10' : 'hover:bg-zinc-900/70'
+                      isSelected ? 'bg-blue-50/80' : 'hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2 text-xs">
-                      <span className="font-mono tabular-nums text-zinc-500">
+                      <span className="font-mono tabular-nums text-slate-400">
                         Q{idx + 1}
                       </span>
-                      <span className="text-zinc-400">{q.category}</span>
+                      <span className="text-slate-500">{q.category}</span>
                     </div>
                     <p
                       className={`mt-1.5 text-sm leading-snug ${
-                        isSelected ? 'font-semibold text-blue-300' : 'text-zinc-200'
+                        isSelected ? 'font-semibold text-blue-900' : 'text-slate-800'
                       }`}
                     >
                       {q.question}
@@ -325,34 +325,34 @@ export function MockInterviewView({
         </aside>
 
         <div className="space-y-6">
-          <div className="bg-[#111216] border border-zinc-800 rounded-lg p-6 space-y-5">
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-zinc-800">
+          <div className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg p-6 space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-4 border-b border-slate-200">
               <div className="space-y-1.5">
-                <span className="text-xs font-medium text-blue-400">
+                <span className="text-xs font-medium text-blue-700">
                   {customQuestion.trim()
                     ? '꼬리 질문 연습'
                     : `${questions[selectedIdx]?.category ?? '면접 질문'}`}
                 </span>
-                <h3 className="text-lg font-semibold text-zinc-100 leading-snug">
+                <h3 className="text-lg font-semibold text-slate-900 leading-snug">
                   {activeQuestion}
                 </h3>
                 {!customQuestion.trim() && questions[selectedIdx] && (
-                  <p className="text-xs text-zinc-400 leading-relaxed pt-1">
+                  <p className="text-xs text-slate-500 leading-relaxed pt-1">
                     출제 의도: {questions[selectedIdx].intent} · 팁:{' '}
                     {questions[selectedIdx].tip}
                   </p>
                 )}
               </div>
 
-              <div className="flex items-center gap-2 bg-zinc-950 border border-zinc-800 rounded-md px-3 py-2 shrink-0">
-                <span className="font-mono text-sm font-semibold tabular-nums text-zinc-100 w-12 text-center">
+              <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-md px-3 py-2 shrink-0">
+                <span className="font-mono text-sm font-semibold tabular-nums text-slate-900 w-12 text-center">
                   {formatDuration(seconds)}
                 </span>
                 <button
                   type="button"
                   onClick={() => setTimerRunning((r) => !r)}
                   aria-label={timerRunning ? '타이머 일시정지' : '타이머 시작'}
-                  className="p-1.5 text-zinc-300 hover:bg-zinc-800 rounded transition-colors"
+                  className="p-1.5 text-slate-700 hover:bg-slate-200/70 rounded transition-colors"
                 >
                   {timerRunning ? (
                     <Pause className="w-3.5 h-3.5" />
@@ -367,7 +367,7 @@ export function MockInterviewView({
                     setSeconds(0);
                   }}
                   aria-label="타이머 초기화"
-                  className="p-1.5 text-zinc-400 hover:bg-zinc-800 rounded transition-colors"
+                  className="p-1.5 text-slate-500 hover:bg-slate-200/70 rounded transition-colors"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
                 </button>
@@ -376,10 +376,10 @@ export function MockInterviewView({
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="text-xs font-medium text-zinc-400">
+                <label className="text-xs font-medium text-slate-600">
                   나의 모의 답변 작성 (핵심 키워드 또는 구술 스크립트)
                 </label>
-                <span className="text-xs font-mono tabular-nums text-zinc-500">
+                <span className="text-xs font-mono tabular-nums text-slate-400">
                   {answer.length}자
                 </span>
               </div>
@@ -388,7 +388,7 @@ export function MockInterviewView({
                 value={answer}
                 onChange={(e) => setAnswer(e.target.value)}
                 placeholder="실제 면접장에서 말하듯 결론을 먼저 말하고(두괄식), 상황-과제-행동-결과(STAR) 순으로 답변을 적어보세요."
-                className="w-full px-4 py-3 text-sm leading-relaxed bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 text-sm leading-relaxed bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
 
@@ -397,7 +397,7 @@ export function MockInterviewView({
                 type="button"
                 disabled={!answer.trim()}
                 onClick={handleSaveToNotes}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-zinc-300 bg-zinc-950 border border-zinc-800 hover:border-zinc-600 disabled:opacity-50 rounded-md transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 disabled:opacity-50 rounded-md transition-colors whitespace-nowrap"
               >
                 <Bookmark className="w-3.5 h-3.5" />
                 <span>{savedNotice ? '노트에 저장되었습니다' : '답변 노트에 저장'}</span>
@@ -407,7 +407,7 @@ export function MockInterviewView({
                 type="button"
                 disabled={reviewingAnswer}
                 onClick={handleReviewAnswer}
-                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 rounded-md transition-colors whitespace-nowrap"
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 rounded-md transition-colors whitespace-nowrap"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>
@@ -418,42 +418,42 @@ export function MockInterviewView({
           </div>
 
           {reviewingAnswer && (
-            <div className="bg-[#111216] border border-zinc-800 rounded-lg p-6 space-y-4 animate-pulse">
-              <div className="h-4 bg-zinc-800 rounded w-1/4" />
-              <div className="h-3 bg-zinc-900 rounded w-full" />
-              <div className="h-20 bg-zinc-900 rounded w-full" />
+            <div className="bg-white/85 backdrop-blur-md border border-slate-200/90 rounded-lg p-6 space-y-4 animate-pulse">
+              <div className="h-4 bg-slate-200 rounded w-1/4" />
+              <div className="h-3 bg-slate-100 rounded w-full" />
+              <div className="h-20 bg-slate-100 rounded w-full" />
             </div>
           )}
 
           {feedback && !reviewingAnswer && (
-            <div className="bg-[#111216] border border-zinc-800 rounded-lg divide-y divide-zinc-800">
+            <div className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg divide-y divide-slate-200">
               <div className="p-6 space-y-2">
-                <h4 className="text-base font-semibold text-zinc-100">
+                <h4 className="text-base font-semibold text-slate-900">
                   면접 답변 코칭 결과
                 </h4>
-                <p className="text-sm text-zinc-300 leading-relaxed">{feedback.verdict}</p>
-                <p className="text-xs text-zinc-400 pt-1 leading-relaxed">
-                  <span className="font-semibold text-zinc-200">STAR 구조 점검: </span>
+                <p className="text-sm text-slate-700 leading-relaxed">{feedback.verdict}</p>
+                <p className="text-xs text-slate-500 pt-1 leading-relaxed">
+                  <span className="font-semibold text-slate-700">STAR 구조 점검: </span>
                   {feedback.starFeedback}
                 </p>
               </div>
 
               <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h5 className="text-xs font-semibold text-emerald-400 mb-2">
+                  <h5 className="text-xs font-semibold text-emerald-700 mb-2">
                     잘 전달된 포인트
                   </h5>
-                  <ul className="space-y-1.5 text-sm text-zinc-300 list-disc pl-4">
+                  <ul className="space-y-1.5 text-sm text-slate-700 list-disc pl-4">
                     {feedback.strengths.map((s, idx) => (
                       <li key={idx}>{s}</li>
                     ))}
                   </ul>
                 </div>
                 <div>
-                  <h5 className="text-xs font-semibold text-amber-400 mb-2">
+                  <h5 className="text-xs font-semibold text-amber-700 mb-2">
                     보완하면 좋을 포인트
                   </h5>
-                  <ul className="space-y-1.5 text-sm text-zinc-300 list-disc pl-4">
+                  <ul className="space-y-1.5 text-sm text-slate-700 list-disc pl-4">
                     {feedback.improvements.map((item, idx) => (
                       <li key={idx}>{item}</li>
                     ))}
@@ -461,17 +461,17 @@ export function MockInterviewView({
                 </div>
               </div>
 
-              <div className="p-6 space-y-2.5 bg-zinc-950/60">
-                <h5 className="text-xs font-semibold text-zinc-200">
+              <div className="p-6 space-y-2.5 bg-slate-50/60">
+                <h5 className="text-xs font-semibold text-slate-800">
                   두괄식 개선 답변 예시
                 </h5>
-                <p className="text-sm text-zinc-200 leading-relaxed whitespace-pre-line bg-zinc-950 border border-zinc-800 rounded-md p-4">
+                <p className="text-sm text-slate-800 leading-relaxed whitespace-pre-line bg-white border border-slate-200 rounded-md p-4">
                   {feedback.refinedAnswer}
                 </p>
               </div>
 
               <div className="p-6 space-y-3">
-                <h5 className="text-xs font-semibold text-zinc-200">
+                <h5 className="text-xs font-semibold text-slate-800">
                   예상 꼬리 질문 (클릭하여 바로 연습하기)
                 </h5>
                 <div className="space-y-2">
@@ -480,7 +480,7 @@ export function MockInterviewView({
                       key={idx}
                       type="button"
                       onClick={() => handlePracticeFollowUp(fq)}
-                      className="w-full text-left px-4 py-3 text-sm text-zinc-200 bg-zinc-950 hover:bg-blue-500/10 hover:text-blue-300 border border-zinc-800 hover:border-blue-500/40 rounded-md transition-colors"
+                      className="w-full text-left px-4 py-3 text-sm text-slate-800 bg-slate-50 hover:bg-blue-50 hover:text-blue-800 border border-slate-200 rounded-md transition-colors"
                     >
                       꼬리질문 {idx + 1}. {fq}
                     </button>
@@ -491,24 +491,24 @@ export function MockInterviewView({
           )}
 
           {/* Saved Notes History */}
-          <section className="bg-[#111216] border border-zinc-800 rounded-lg overflow-hidden">
-            <div className="px-6 py-4 border-b border-zinc-800 flex items-center justify-between">
-              <h4 className="text-sm font-semibold text-zinc-100">
+          <section className="bg-white/85 backdrop-blur-md border border-slate-200/90 shadow-[0_1px_3px_rgba(15,23,42,0.04)] rounded-lg overflow-hidden">
+            <div className="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+              <h4 className="text-sm font-semibold text-slate-900">
                 저장된 면접 답변 노트 ({notes.length})
               </h4>
-              <span className="text-xs text-zinc-500">자동 저장</span>
+              <span className="text-xs text-slate-400">자동 저장</span>
             </div>
             {notes.length === 0 ? (
-              <div className="p-8 text-center text-xs text-zinc-500">
+              <div className="p-8 text-center text-xs text-slate-500">
                 연습한 답변에서 &apos;답변 노트에 저장&apos;을 누르면 이곳에 정리됩니다.
               </div>
             ) : (
-              <ul className="divide-y divide-zinc-800/80">
+              <ul className="divide-y divide-slate-200">
                 {notes.map((note) => (
                   <li key={note.id} className="p-5 space-y-2">
                     <div className="flex items-start justify-between gap-4">
                       <div className="space-y-1">
-                        <div className="text-xs text-zinc-500 flex flex-wrap items-center gap-2">
+                        <div className="text-xs text-slate-500 flex flex-wrap items-center gap-2">
                           <span>{note.role}</span>
                           <span aria-hidden="true">·</span>
                           <span>{note.interviewType}</span>
@@ -521,7 +521,7 @@ export function MockInterviewView({
                             {note.createdAt || getTodayIso()}
                           </span>
                         </div>
-                        <p className="text-sm font-semibold text-zinc-100">
+                        <p className="text-sm font-semibold text-slate-900">
                           {note.question}
                         </p>
                       </div>
@@ -529,12 +529,12 @@ export function MockInterviewView({
                         type="button"
                         onClick={() => onDeleteNote(note.id)}
                         aria-label="노트 삭제"
-                        className="p-1.5 text-zinc-500 hover:text-rose-400 rounded transition-colors shrink-0"
+                        className="p-1.5 text-slate-400 hover:text-rose-600 rounded transition-colors shrink-0"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
-                    <p className="text-sm text-zinc-300 leading-relaxed whitespace-pre-line">
+                    <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-line">
                       {note.answer}
                     </p>
                   </li>

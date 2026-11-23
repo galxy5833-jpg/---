@@ -3,6 +3,7 @@ import { ApplicationModal } from './components/ApplicationModal';
 import { ChecklistResumeView } from './components/ChecklistResumeView';
 import { CoverLetterStudio } from './components/CoverLetterStudio';
 import { DashboardView } from './components/DashboardView';
+import { Footer } from './components/Footer';
 import { MockInterviewView } from './components/MockInterviewView';
 import { TopBar } from './components/TopBar';
 import {
@@ -194,17 +195,38 @@ export default function App() {
       : 0;
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#09090B] text-zinc-100">
-      <TopBar
-        activeTab={activeTab}
-        onSelectTab={setActiveTab}
-        onOpenNewApplication={() => {
-          setEditingApp(null);
-          setModalOpen(true);
-        }}
-      />
+    <div className="relative min-h-screen flex flex-col bg-[#F8FAFC] text-slate-900 overflow-x-hidden">
+      {/* Layered Bright Silicon-Wafer Architectural Backdrop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-white"
+      >
+        <img
+          src="/src/assets/images/white_wafer_backdrop_1795400960829.jpg"
+          alt=""
+          referrerPolicy="no-referrer"
+          className="w-full h-[78vh] object-cover object-center opacity-55 scale-105 select-none"
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/35 via-white/80 to-[#F8FAFC]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/75 via-transparent to-white/55" />
+        <div className="absolute inset-0 bg-ambient-glow" />
+        <div className="absolute inset-0 bg-wafer-grid" />
+      </div>
 
-      <main className="flex-1 w-full max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-10">
+      <div className="relative z-10 flex-1 flex flex-col">
+        <TopBar
+          activeTab={activeTab}
+          onSelectTab={setActiveTab}
+          onOpenNewApplication={() => {
+            setEditingApp(null);
+            setModalOpen(true);
+          }}
+        />
+
+        <main className="flex-1 w-full max-w-[1280px] mx-auto px-4 sm:px-8 py-8 sm:py-10">
         {/* Page 1: Executive Main Dashboard */}
         {activeTab === 'dashboard' && (
           <DashboardView
@@ -238,23 +260,23 @@ export default function App() {
         {/* Page 2: Cover Letter & Resume Studio */}
         {activeTab === 'documents' && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-zinc-800/90">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-slate-200/90">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-50">
+                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
                   자소서 · 이력서 AI 스튜디오
                 </h1>
-                <p className="mt-1 text-sm text-zinc-400">
+                <p className="mt-1 text-sm text-slate-500">
                   지원 기업의 직무 요구사항(JD)을 연동해 자기소개서를 첨삭하고 이력서 경력 문장을 성과 중심으로 다듬습니다.
                 </p>
               </div>
-              <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-md self-start sm:self-auto shrink-0">
+              <div className="flex items-center gap-1 p-1 bg-slate-100 border border-slate-200 rounded-md self-start sm:self-auto shrink-0">
                 <button
                   type="button"
                   onClick={() => setDocumentsSubTab('cover-letter')}
                   className={`px-3.5 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap ${
                     documentsSubTab === 'cover-letter'
-                      ? 'bg-zinc-800 text-zinc-50'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'bg-white text-slate-900 shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   자기소개서 AI 첨삭
@@ -264,8 +286,8 @@ export default function App() {
                   onClick={() => setDocumentsSubTab('resume')}
                   className={`px-3.5 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap ${
                     documentsSubTab === 'resume'
-                      ? 'bg-zinc-800 text-zinc-50'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'bg-white text-slate-900 shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   이력서 문장 점검
@@ -301,23 +323,23 @@ export default function App() {
         {/* Page 3: Mock Interview & Prep Checklist */}
         {activeTab === 'interview-prep' && (
           <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-zinc-800/90">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-6 border-b border-slate-200/90">
               <div>
-                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-50">
+                <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
                   모의 면접 · 준비 체크리스트
                 </h1>
-                <p className="mt-1 text-sm text-zinc-400">
+                <p className="mt-1 text-sm text-slate-500">
                   직무 맞춤 예상 질문으로 실전 면접을 연습하고, 서류·필기·면접 4단계 준비 상태를 점검합니다.
                 </p>
               </div>
-              <div className="flex items-center gap-1 p-1 bg-zinc-900 border border-zinc-800 rounded-md self-start sm:self-auto shrink-0">
+              <div className="flex items-center gap-1 p-1 bg-slate-100 border border-slate-200 rounded-md self-start sm:self-auto shrink-0">
                 <button
                   type="button"
                   onClick={() => setInterviewSubTab('interview')}
                   className={`px-3.5 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap ${
                     interviewSubTab === 'interview'
-                      ? 'bg-zinc-800 text-zinc-50'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'bg-white text-slate-900 shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   AI 모의 면접 코치
@@ -327,8 +349,8 @@ export default function App() {
                   onClick={() => setInterviewSubTab('checklist')}
                   className={`px-3.5 py-1.5 text-xs font-medium rounded transition-colors whitespace-nowrap ${
                     interviewSubTab === 'checklist'
-                      ? 'bg-zinc-800 text-zinc-50'
-                      : 'text-zinc-400 hover:text-zinc-200'
+                      ? 'bg-white text-slate-900 shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   준비 체크리스트 ({checklistPct}%)
@@ -358,7 +380,10 @@ export default function App() {
             )}
           </div>
         )}
-      </main>
+        </main>
+
+        <Footer onSelectTab={setActiveTab} />
+      </div>
 
       <ApplicationModal
         open={modalOpen}

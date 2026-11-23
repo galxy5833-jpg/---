@@ -95,22 +95,22 @@ export function ApplicationModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-end bg-black/70 backdrop-blur-xs">
+    <div className="fixed inset-0 z-50 flex items-center justify-end bg-slate-900/35 backdrop-blur-xs">
       <div
-        className="w-full max-w-xl h-full bg-[#111216] border-l border-zinc-800 flex flex-col overflow-hidden"
+        className="w-full max-w-xl h-full bg-white border-l border-slate-200 flex flex-col overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="app-modal-title"
       >
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800 shrink-0">
-          <h2 id="app-modal-title" className="text-base font-semibold text-zinc-100">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 shrink-0">
+          <h2 id="app-modal-title" className="text-base font-semibold text-slate-900">
             {initialData ? '지원 공고 상세 및 수정' : '새 지원서 등록'}
           </h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="창 닫기"
-            className="p-2 text-zinc-400 hover:text-zinc-100 rounded-md transition-colors"
+            className="p-2 text-slate-400 hover:text-slate-700 rounded-md transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -118,47 +118,47 @@ export function ApplicationModal({
 
         <form id="application-form" onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-5">
           {errorMsg && (
-            <div className="px-4 py-3 text-sm text-rose-300 bg-rose-950/50 border border-rose-800 rounded-md">
+            <div className="px-4 py-3 text-sm text-rose-700 bg-rose-50 border border-rose-200 rounded-md">
               {errorMsg}
             </div>
           )}
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
-                기업명 <span className="text-rose-400">*</span>
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                기업명 <span className="text-rose-600">*</span>
               </label>
               <input
                 type="text"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
                 placeholder="예: 삼성전자 DS, SK하이닉스, LS일렉트릭"
-                className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
-                지원 직무 <span className="text-rose-400">*</span>
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
+                지원 직무 <span className="text-rose-600">*</span>
               </label>
               <input
                 type="text"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
                 placeholder="예: 반도체 공정기술 / 전력설비 설계"
-                className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
                 현재 전형 단계
               </label>
               <select
                 value={stage}
                 onChange={(e) => setStage(e.target.value as ApplicationStage)}
-                className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               >
                 {STAGES.map((item) => (
                   <option key={item} value={item}>
@@ -168,24 +168,24 @@ export function ApplicationModal({
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
                 마감일 / 일정일
               </label>
               <input
                 type="date"
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                className="w-full px-3 py-2 text-sm font-mono tabular-nums bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm font-mono tabular-nums bg-white border border-slate-300 text-slate-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
                 고용 형태
               </label>
               <select
                 value={workType}
                 onChange={(e) => setWorkType(e.target.value as JobApplication['workType'])}
-                className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               >
                 {WORK_TYPES.map((type) => (
                   <option key={type} value={type}>
@@ -198,7 +198,7 @@ export function ApplicationModal({
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
                 근무 지역
               </label>
               <input
@@ -206,11 +206,11 @@ export function ApplicationModal({
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
                 placeholder="예: 경기 화성 · 이천 · 청주"
-                className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
             <div>
-              <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+              <label className="block text-xs font-medium text-slate-700 mb-1.5">
                 공고 URL
               </label>
               <input
@@ -218,13 +218,13 @@ export function ApplicationModal({
                 value={jobUrl}
                 onChange={(e) => setJobUrl(e.target.value)}
                 placeholder="https://..."
-                className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+            <label className="block text-xs font-medium text-slate-700 mb-1.5">
               다음 할 일 (Next Action)
             </label>
             <input
@@ -232,12 +232,12 @@ export function ApplicationModal({
               value={nextAction}
               onChange={(e) => setNextAction(e.target.value)}
               placeholder="예: PT 면접 대비 8대 공정 트러블슈팅 사례 정리"
-              className="w-full px-3 py-2 text-sm bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 text-sm bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-zinc-400 mb-1.5">
+            <label className="block text-xs font-medium text-slate-700 mb-1.5">
               채용 공고 핵심 요구사항 (JD 메모)
             </label>
             <textarea
@@ -245,13 +245,13 @@ export function ApplicationModal({
               value={jdNotes}
               onChange={(e) => setJdNotes(e.target.value)}
               placeholder="주요 업무, 자격 요건, 우대 사항을 붙여넣으면 AI 자기소개서 첨삭 및 모의 면접 시 자동으로 반영됩니다."
-              className="w-full px-3 py-2.5 text-sm leading-relaxed bg-zinc-950 border border-zinc-800 text-zinc-100 placeholder:text-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2.5 text-sm leading-relaxed bg-white border border-slate-300 text-slate-900 placeholder:text-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
           </div>
 
           {initialData && onCreateCoverLetter && (
-            <div className="pt-3 border-t border-zinc-800 flex items-center justify-between gap-4">
-              <div className="text-xs text-zinc-400">
+            <div className="pt-3 border-t border-slate-200 flex items-center justify-between gap-4">
+              <div className="text-xs text-slate-500">
                 이 공고의 JD 메모를 바탕으로 자기소개서를 작성할 수 있습니다.
               </div>
               <button
@@ -260,7 +260,7 @@ export function ApplicationModal({
                   onCreateCoverLetter(initialData);
                   onClose();
                 }}
-                className="px-3 py-1.5 text-xs font-medium text-blue-400 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 rounded-md transition-colors whitespace-nowrap shrink-0"
+                className="px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-md transition-colors whitespace-nowrap shrink-0"
               >
                 자소서 바로 작성
               </button>
@@ -268,7 +268,7 @@ export function ApplicationModal({
           )}
         </form>
 
-        <div className="px-6 py-4 border-t border-zinc-800 bg-zinc-950 flex items-center justify-between gap-3 shrink-0">
+        <div className="px-6 py-4 border-t border-slate-200 bg-slate-50 flex items-center justify-between gap-3 shrink-0">
           <div>
             {initialData && onDelete && (
               <button
@@ -277,7 +277,7 @@ export function ApplicationModal({
                   onDelete(initialData.id);
                   onClose();
                 }}
-                className="px-3 py-2 text-sm font-medium text-rose-400 hover:bg-rose-950/60 rounded-md transition-colors whitespace-nowrap"
+                className="px-3 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 rounded-md transition-colors whitespace-nowrap"
               >
                 삭제
               </button>
@@ -287,14 +287,14 @@ export function ApplicationModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 text-sm font-medium text-zinc-300 bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 rounded-md transition-colors whitespace-nowrap"
+              className="px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 hover:bg-slate-50 rounded-md transition-colors whitespace-nowrap"
             >
               취소
             </button>
             <button
               type="submit"
               form="application-form"
-              className="px-5 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-500 rounded-md transition-colors whitespace-nowrap"
+              className="px-5 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-md transition-colors whitespace-nowrap"
             >
               {initialData ? '변경사항 저장' : '지원서 등록'}
             </button>
